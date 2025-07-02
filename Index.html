@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FATHIR STORE - Solusi Digital untuk Bisnis Masa Kini</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@400;500&display=swap">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --neon-blue: #00f2ff;
+            --neon-purple: #b400ff;
+            --text-primary: rgba(255, 255, 255, 0.9);
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --card-bg: rgba(20, 20, 20, 0.8);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--neon-blue);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--neon-purple);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(180, 0, 255, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(180, 0, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue), 0 0 40px rgba(0, 242, 255, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            color: #000;
+            border: none;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.7);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: var(--neon-blue);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.5);
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .about-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image img {
+            width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            border: 2px solid var(--neon-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--card-bg);
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+        }
+
+        .social-icon:hover {
+            background-color: var(--neon-blue);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+        }
+
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 242, 255, 0.1);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.2);
+            border-color: var(--neon-blue);
+        }
+
+        .portfolio-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .portfolio-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-img img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .portfolio-info p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .portfolio-links a {
+            font-size: 0.9rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        /* Articles Section */
+        .articles-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .article-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 242, 255, 0.1);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 242, 255, 0.1);
+            border-color: var(--neon-blue);
+        }
+
+        .article-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .article-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--neon-blue);
+            font-weight: 500;
+        }
+
+        .sidebar {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+        }
+
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 10px;
+        }
+
+        .categories-list a {
+            display: block;
+            padding: 8px 10px;
+            border-radius: 5px;
+            transition: var(--transition);
+            color: var(--text-secondary);
+        }
+
+        .categories-list a:hover {
+            background-color: rgba(0, 242, 255, 0.1);
+            color: var(--neon-blue);
+        }
+
+        /* Shop Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 242, 255, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 242, 255, 0.1);
+            border-color: var(--neon-blue);
+        }
+
+        .product-img {
+            height: 150px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--neon-blue);
+            margin-bottom: 15px;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .product-features li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--neon-blue);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 30px;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-method {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid rgba(0, 242, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+        }
+
+        .contact-method h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-method h3 i {
+            color: var(--neon-blue);
+            font-size: 1.3rem;
+        }
+
+        .contact-method p {
+            color: var(--text-secondary);
+        }
+
+        .contact-method a {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--neon-blue);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .articles-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .portfolio-grid, .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="https://wa.me/message/S74LTWAERJGHC1" class="logo">FATHIR STORE</a>
+                <div class="nav-links">
+                    <a href="#home">Beranda</a>
+                    <a href="#about">Tentang</a>
+                    <a href="#portfolio">Portofolio</a>
+                    <a href="#articles">Artikel</a>
+                    <a href="#shop">Toko</a>
+                    <a href="#contact">Kontak</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Bangun Bisnis Pintar, Mulai dari Sini!</h1>
+                    <p>Solusi digital untuk membantu bisnis Anda tumbuh lebih cepat dengan teknologi terkini. Dari pembuatan website hingga otomatisasi bisnis.</p>
+                    <div class="cta-buttons">
+                        <a href="#portfolio" class="btn btn-primary">Lihat Portofolio</a>
+                        <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://files.catbox.moe/35ynjp.jpg" alt="Fathir">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tentang Saya</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Perjalanan saya di dunia teknologi tidak selalu mulus. Saya pernah gagal berkali-kali, mulai dari proyek yang tidak selesai, kode yang tidak berfungsi, hingga bisnis online yang tidak menghasilkan.</p>
+                    <p>Tapi setiap kegagalan mengajarkan sesuatu yang berharga. Sekarang, dengan pengalaman bertahun-tahun, saya siap membantu Anda membangun solusi digital yang powerful untuk bisnis Anda.</p>
+                    <p>Saya fokus pada pengembangan website, bot otomatisasi, dan solusi teknologi lainnya yang bisa membantu bisnis tumbuh lebih efisien.</p>
+                    <<div class="social-links">
+    <a href="https://www.instagram.com/fathir_sthore?igsh=czlka3FuMG5veDFp" class="social-icon" target="_blank" rel="noopener noreferrer" title="Instagram Saya">
+        <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://github.com/fathir-sthore" class="social-icon" target="_blank" rel="noopener noreferrer" title="Profil GitHub">
+        <i class="fab fa-github"></i>
+    </a>
+    <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer" title="LinkedIn (belum tersedia)">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://wa.me/message/S74LTWAERJGHC1" class="social-icon" target="_blank" rel="noopener noreferrer" title="Hubungi via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+                </div>
+                <div class="about-image">
+                    <img src="https://files.catbox.moe/35ynjp.jpg" alt="Tentang Fathir">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="section" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portofolio</h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://files.catbox.moe/hv1pgn.jpg" alt="WhatsApp Bot">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>WhatsApp Marketing Bot</h3>
+                        <p>Bot otomatisasi untuk pemasaran via WhatsApp dengan fitur broadcast, auto-reply, dan manajemen kontak.</p>
+                        <div class="portfolio-links">
+                            <a href="https://listsc.netlify.app" class="btn btn-primary">Produk</a>
+                            <a href="https://fathir-sthore.github.io/listsc" class="btn btn-secondary">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://files.catbox.moe/3jm2yd.jpg" alt="E-Commerce Website">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Toko Online Digital</h3>
+                        <p>Website toko online dengan sistem pembayaran lengkap, manajemen produk, dan dashboard admin.</p>
+                        <div class="portfolio-links">
+                            <a href="https://produk-rho.vercel.app" class="btn btn-primary">Kunjungi</a>
+                            <a href="https://raw.githubusercontent.com/fathir-sthore/listsc/refs/heads/main/README.md" class="btn btn-secondary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="https://files.catbox.moe/tvhyrs.jpg" alt="UI/UX Design">
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Desain Aplikasi Fintech</h3>
+                        <p>UI/UX design untuk aplikasi mobile fintech dengan fokus pada pengalaman pengguna yang intuitif.</p>
+                        <div class="portfolio-links">
+                            <a href="https://uidisain-fathirs-projects-832d1490.vercel.app/" class="btn btn-primary">Lihat</a>
+                            <a href="https://fathir-sthore.github.io/my-website/diaitel" class="btn btn-secondary">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="section" id="articles">
+        <div class="container">
+            <div class="section-title">
+                <h2>Artikel Terbaru</h2>
+            </div>
+            <div class="articles-container">
+                <div class="articles-list">
+                    <div class="article-card">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> 1 Juli 2025</span>
+                            <span><i class="far fa-folder"></i> Teknologi</span>
+                        </div>
+                        <h3>Cara Membuat Bot WhatsApp dengan Node.js</h3>
+                        <p>Panduan lengkap untuk membuat bot WhatsApp sendiri menggunakan Node.js dan library whatsapp-web.js. Pelajari cara membuat auto-reply, broadcast message, dan fitur lainnya.</p>
+                        <a href="https://fathir-sthore.github.io/my-website/tutornodejs" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="far fa-folder"></i> Bisnis Online</span>
+                        </div>
+                        <h3>Strategi Monetisasi untuk Website Baru</h3>
+                        <p>7 cara menghasilkan uang dari website baru Anda, mulai dari Google AdSense hingga program afiliasi. Temukan metode yang cocok untuk niche Anda.</p>
+                        <a href="https://fathir-sthore.github.io/my-website/ide" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                    <div class="article-card">
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar-alt"></i> 1 Juli 2025</span>
+                            <span><i class="far fa-folder"></i> Tutorial</span>
+                        </div>
+                        <h3>Hosting Gratis untuk Project Kecil</h3>
+                        <p>Daftar penyedia hosting gratis terbaik untuk project kecil Anda. Bandingkan fitur dan batasan masing-masing penyedia.</p>
+                        <a href="https://fathir-sthore.github.io/my-website/web" class="read-more">Baca Selengkapnya →</a>
+                    </div>
+                </div>
+                <div class="sidebar">
+                    <h3 class="sidebar-title">Kategori</h3>
+                    <ul class="categories-list">
+                        <li><a href="https://listsc.netlify.ap"><i class="fas fa-robot"></i> Teknologi</a></li>
+                        <li><a href="https://produk-rho.vercel.app"><i class="fas fa-shopping-cart"></i> Bisnis Online</a></li>
+                        <li><a href="https://fathir-sthore.github.io/my-website/tutornodejs"><i class="fas fa-graduation-cap"></i> Tutorial</a></li>
+                        <li><a href="https://listvps.netlify.app"><i class="fas fa-server"></i> VPS & Hosting</a></li>
+                        <li><a href="https://produk-rho.vercel.app"><i class="fas fa-code"></i> Script & Bot</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section class="section" id="shop">
+        <div class="container">
+            <div class="section-title">
+                <h2>Toko & Jasa</h2>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://files.catbox.moe/0iatgw.jpg" alt="WhatsApp Bot Script">
+                    </div>
+                    <h3>Script Bot WhatsApp Premium</h3>
+                    <div class="product-price">Rp 15.000</div>
+                    <ul class="product-features">
+                        <li>Auto-reply pesan</li>
+                        <li>Broadcast ke banyak kontak</li>
+                        <li>Manajemen database</li>
+                        <li>Dokumentasi lengkap</li>
+                    </ul>
+                    <a href="https://wa.me/message/S74LTWAERJGHC1" class="btn btn-primary">Beli via WhatsApp</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://files.catbox.moe/3nyqjb.jpg" alt="Website Development">
+                    </div>
+                    <h3>Jasa Pembuatan Website</h3>
+                    <div class="product-price">Mulai Rp 15.000 - Rp 50.000</div>
+                    <ul class="product-features">
+                        <li>Desain responsif</li>
+                        <li>Optimasi SEO dasar</li>
+                        <li>Integrasi pembayaran</li>
+                        <li>1 bulan support gratis</li>
+                    </ul>
+                    <a href="https://listwebs.netlify.app" class="btn btn-primary">list webs</a>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://files.catbox.moe/wg4dr2.jpg" alt="VPS Management">
+                    </div>
+                    <h3>Jasa Setup & Maintenance VPS</h3>
+                    <div class="product-price">Rp 15.000-Rp 70.000/bulan</div>
+                    <ul class="product-features">
+                        <li>Setup awal VPS</li>
+                        <li>Optimasi keamanan</li>
+                        <li>Monitoring 24/7</li>
+                        <li>Backup rutin</li>
+                    </ul>
+                    <a href="https://listvps.netlify.app" class="btn btn-primary">List</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Kontak</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nama Anda</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <h3><i class="fab fa-whatsapp"></i> WhatsApp</h3>
+                        <p>Hubungi saya langsung via WhatsApp untuk respon lebih cepat.</p>
+                        <a href="https://wa.me/message/S74LTWAERJGHC1" class="btn btn-secondary">Contact Admin</a>
+                    </div>
+                    <div class="contact-method">
+                        <h3><i class="far fa-envelope"></i> Email</h3>
+                        <p>Kirim email untuk pertanyaan lebih detail atau penawaran kerja sama.</p>
+                        <a href="mailto:fathirsthore@gmail.com" class="btn btn-secondary">fathir@example.com</a>
+                    </div>
+                    <div class="contact-method">
+                        <h3><i class="fas fa-map-marker-alt"></i> Lokasi</h3>
+                        <p>Saya berbasis di Jakarta, Indonesia. Bisa bekerja remote untuk klien di seluruh dunia.</p>
+                        <a href="#" class="btn btn-secondary">Lihat di Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FATHIR STORE</h3>
+                    <p>Solusi digital untuk membantu bisnis Anda tumbuh lebih cepat dengan teknologi terkini.</p>
+                    <div class="social-links" style="margin-top: 20px;">
+                        <a href="@fathir.sthore" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github/fathir_sthore" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="@fathir.sthore" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/message/S74LTWAERJGHC1" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Menu</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#portfolio">Portofolio</a></li>
+                        <li><a href="#articles">Artikel</a></li>
+                        <li><a href="#shop">Toko</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kategori Artikel</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://listsc.netlify.app">Teknologi</a></li>
+                        <li><a href="#">Bisnis Online</a></li>
+                        <li><a href="https://fathir-sthore.github.io/my-website/tutornodejs">Tutorial</a></li>
+                        <li><a href="https://listvps.netlify.app">VPS & Hosting</a></li>
+                        <li><a href="https://listsc.netlify.app">Script & Bot</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Produk & Jasa</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://listsc.netlify.app">Script Bot WhatsApp</a></li>
+                        <li><a href="https://produk-rho.vercel.app">Jasa Pembuatan Website</a></li>
+                        <li><a href="https://listvps.netlify.app">Setup & Maintenance VPS</a></li>
+                        <li><a href="https://wa.me/message/S74LTWAERJGHC1">Konsultasi Teknologi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 FATHIR STORE. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+        
+        // Add shadow to header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.portfolio-item, .article-card, .product-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        document.querySelectorAll('.portfolio-item, .article-card, .product-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
